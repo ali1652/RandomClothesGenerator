@@ -13,11 +13,23 @@
         android:theme="@style/Theme.WorkoutPlanner"
         tools:targetApi="31">
         <activity
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
             android:name=".WelcomePage"
-            android:label = "Welcome Page"
+            android:label="Welcome Page"
             android:parentActivityName=".MainActivity">
-
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="multi.screen.workoutplanner.MainActivity" />
@@ -25,11 +37,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
             <meta-data
                 android:name="android.app.lib_name"
