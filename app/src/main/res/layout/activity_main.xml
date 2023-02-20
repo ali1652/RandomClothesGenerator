@@ -23,7 +23,7 @@
         android:layout_below="@id/userName"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Password"
+        android:hint="assword"
 
         />
 
