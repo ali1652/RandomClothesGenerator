@@ -13,32 +13,6 @@ public class myDbAdapter {
         myhelper = new myDbHelper(context);
     }
 
-    public long insertData(String name, String platform) {
-        SQLiteDatabase dbb = myhelper.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.NAME, name);
-        contentValues.put(myDbHelper.MyPlatform, platform);
-        long id = dbb.insert(myDbHelper.TABLE_NAME, null, contentValues);
-        return id;
-
-    }
-
-    public String getData() {
-        SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] coloumns = {myDbHelper.UID, myDbHelper.NAME, myDbHelper.MyPlatform};
-        Cursor cursor = db.query(myDbHelper.TABLE_NAME, coloumns,
-                null, null, null, null, null);
-        StringBuffer buffer = new StringBuffer();
-        while (cursor.moveToNext()) {
-            int cid = cursor.getInt(cursor.getColumnIndexOrThrow(myDbHelper.UID));
-            String name = cursor.getString(cursor.getColumnIndexOrThrow(myDbHelper.NAME));
-            String platform = cursor.getString(cursor.getColumnIndexOrThrow(myDbHelper.MyPlatform));
-            buffer.append(cid + "   " + name + "   " + platform + "  \n");
-        }
-        return buffer.toString();
-    }
-
-
 
 
     static class myDbHelper extends SQLiteOpenHelper {

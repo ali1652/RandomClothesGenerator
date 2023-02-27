@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainScreen">
+
+    <Button
+        android:id="@+id/nav1"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:text="1"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/nav2"
+        android:onClick="toLogIn"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:id="@+id/nav2"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:onClick="toSignUp"
+        android:text="2"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:id="@+id/nav3"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:text="3"
+        android:layout_toRightOf="@id/nav2"
+        android:layout_alignParentBottom="true"
+        android:onClick="toSignUp"
+        android:layout_margin="5dp"
+        />
+
+    <Button
+        android:id="@+id/startWorkoutBtn"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:text="Start Workout"
+        android:layout_above="@id/nav2"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

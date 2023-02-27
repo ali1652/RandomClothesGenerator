@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "56685909127",
+    "project_id": "workoutplanner-49f96",
+    "storage_bucket": "workoutplanner-49f96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56685909127:android:811149a69f8e195bde5422",
+        "android_client_info": {
+          "package_name": "multi.screen.workoutplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56685909127-n6kl6fefurria7j3lnb98iir0vdcde64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNiMnLEHEQGvzdnHzxcw-bmVnCzYh333k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56685909127-n6kl6fefurria7j3lnb98iir0vdcde64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
