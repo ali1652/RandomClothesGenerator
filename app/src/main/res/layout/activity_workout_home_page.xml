@@ -6,23 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".WorkoutHomePage">
 
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint = "name" />
+
+    <RadioButton
+        android:id="@+id/male"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit"
+        android:text="Biceps"/>
+
+    <RadioButton
+        android:id="@+id/female"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/male"
+        android:text="Triceps"/>
+
+    <RadioButton
+        android:id="@+id/chest"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/female"
+        android:text="Chest"/>
+
+    <RadioButton
+        android:id="@+id/back"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chest"
+        android:text="Back"/>
+
+    <RadioButton
+        android:id="@+id/legs"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/back"
+        android:text="Legs"/>
+
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="141dp"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
+        android:layout_below="@id/save_btn"
+
         />
 
+
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/radioBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 1"/>
+        <RadioButton
+            android:id="@+id/radioBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 2"/>
+        <RadioButton
+            android:id="@+id/radioBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 3"/>
+    </RadioGroup>
+
+
+
+
+
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/legs"
         android:text="Add Workout"
-        android:layout_below="@id/spinner"
-        android:onClick="toWorkoutSelecter"/>
+        />
 
 
 </RelativeLayout>
