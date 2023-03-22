@@ -47,39 +47,27 @@
         android:layout_below="@id/back"
         android:text="Legs"/>
 
-    <Spinner
-        android:id="@+id/spinner"
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/save_btn"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/save_btn"
-
-        />
-
-
-
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/radioBtn1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Option 1"/>
-        <RadioButton
-            android:id="@+id/radioBtn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Option 2"/>
-        <RadioButton
-            android:id="@+id/radioBtn3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Option 3"/>
-    </RadioGroup>
-
+        android:layout_centerInParent="true"
+        android:background="@android:drawable/editbox_background"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:drawablePadding="16dp"
+        android:hint="Select Language"
+        android:padding="12dp"
+        android:layout_below="@id/save_btn"/>
 
 
 

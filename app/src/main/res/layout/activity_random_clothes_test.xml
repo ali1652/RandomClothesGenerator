@@ -4,27 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreen">
+    tools:context=".RandomClothesTest">
 
-
-
-
-
-    <ListView
-        android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:divider="@color/black"
-        android:dividerHeight="2dp"/>
-
-    <TextView
-        android:id="@+id/selected_items_textview"
+    <EditText
+        android:id="@+id/shirtsInput"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:text="Selected Items:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_below="@id/list_view"/>
+        android:hint="Enter you shirt here" />
+
+    <Button
+        android:id="@+id/submitshirt"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Button" />
 
 
 </RelativeLayout>
