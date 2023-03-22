@@ -16,7 +16,7 @@
         android:id="@+id/addShirts"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:text="lololol"
+        android:text="Add Shirt to Wardbrobe"
         android:onClick="buttonClick"
         android:layout_below="@id/shirtsInput"
         />
