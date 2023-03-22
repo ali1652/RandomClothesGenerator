@@ -9,14 +9,26 @@
     <EditText
         android:id="@+id/shirtsInput"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="50dp"
         android:hint="Enter you shirt here" />
 
     <Button
-        android:id="@+id/submitshirt"
+        android:id="@+id/addShirts"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="lololol"
+        android:onClick="buttonClick"
+        android:layout_below="@id/shirtsInput"
+        />
+
+
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="Button" />
+        android:layout_height="match_parent"
+        android:id="@+id/listview"
+        android:layout_below="@id/addShirts"/>
+
+
 
 
 </RelativeLayout>
