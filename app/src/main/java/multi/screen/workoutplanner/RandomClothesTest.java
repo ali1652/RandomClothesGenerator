@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,9 +27,11 @@ import java.util.List;
 public class RandomClothesTest extends AppCompatActivity {
     EditText shirts;
     FirebaseDatabase database;
-
-    List<String> userShirts;
     DatabaseReference reference;
+    List<String> userShirts;
+
+
+
 
 
     @Override
@@ -39,9 +43,10 @@ public class RandomClothesTest extends AppCompatActivity {
 
         String getShirtsInput = shirts.getText().toString();
 
-        String Tshirts[]
-                = {"Nike Blue", "Primark red",
-                "Adidas white"};
+        //referencing the database
+        database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
+        reference = database.getReference().child("Shirts");
+
 
         userShirts = new ArrayList<>();
 
@@ -49,21 +54,19 @@ public class RandomClothesTest extends AppCompatActivity {
         ListView listView = findViewById(R.id.listview);
         //sets the view of list
         // ArrayAdapter<String> arrayList = getList();
-
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, userShirts);
+      //  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
+            //    android.R.layout.simple_list_item_1, userShirts);
+        ArrayAdapter<String> arrayAdapter = new customCard(this,userShirts);
         ;
         listView.setAdapter(arrayAdapter);
 
 
-        //referencing the database
-        database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
-        reference = database.getReference().child("Shirts");
+
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userShirts.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     userShirts.add(snapshot.getValue().toString());
                 }
@@ -93,7 +96,15 @@ public class RandomClothesTest extends AppCompatActivity {
 
     }
 
+    public void deleteShirt(View view){
+
+    }
+
+
+
 }
+
+
 
 
 
