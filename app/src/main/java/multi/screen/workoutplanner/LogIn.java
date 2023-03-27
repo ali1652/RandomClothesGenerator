@@ -110,7 +110,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(LogIn.this,WorkoutHomePage.class);
+        Intent intent = new Intent(LogIn.this,RandomClothesTest.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

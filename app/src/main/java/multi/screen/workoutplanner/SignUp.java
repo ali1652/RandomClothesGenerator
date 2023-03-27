@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
             inputPassword2.setError("Passwords not not match");
         }else
         {
-            progressDialog.setMessage("Please wait while we Registration");
+            progressDialog.setMessage("Please wait while we Register you account");
             progressDialog.setTitle("Registation....");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
@@ -99,7 +99,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(SignUp.this,WorkoutHomePage.class);
+        Intent intent = new Intent(SignUp.this,RandomClothesTest.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

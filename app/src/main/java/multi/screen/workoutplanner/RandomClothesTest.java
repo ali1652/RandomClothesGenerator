@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.ref.Reference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +31,8 @@ public class RandomClothesTest extends AppCompatActivity {
     EditText shirts;
     FirebaseDatabase database;
     DatabaseReference reference;
+    DatabaseReference reference2;
     List<String> userShirts;
-
-
-
 
 
     @Override
@@ -52,23 +53,18 @@ public class RandomClothesTest extends AppCompatActivity {
 
 
         ListView listView = findViewById(R.id.listview);
-        //sets the view of list
-        // ArrayAdapter<String> arrayList = getList();
-      //  ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-            //    android.R.layout.simple_list_item_1, userShirts);
-        ArrayAdapter<String> arrayAdapter = new customCard(this,userShirts);
-        ;
+
+        ArrayAdapter<String> arrayAdapter = new customCard(this, userShirts);
         listView.setAdapter(arrayAdapter);
-
-
 
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userShirts.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     userShirts.add(snapshot.getValue().toString());
+                    //String getID = snapshot.getKey();
                 }
                 arrayAdapter.notifyDataSetChanged();
             }
@@ -82,11 +78,12 @@ public class RandomClothesTest extends AppCompatActivity {
 
     }
 
-
     // adds data to the firebase database once user has inputted a shirt
 
     public void buttonClick(View view) {
+
         String getShirtsInput = shirts.getText().toString();
+
                         if (getShirtsInput.isEmpty()) {
                             Toast.makeText(RandomClothesTest.this, "Enter value", Toast.LENGTH_SHORT).show();
                         } else {
@@ -94,15 +91,26 @@ public class RandomClothesTest extends AppCompatActivity {
                             Toast.makeText(RandomClothesTest.this, "Shirt added", Toast.LENGTH_SHORT).show();
                         }
 
+        /*
+        reference2 = database.getReference("Shirts");
+        String shirtName = getShirtsInput;
+        String id = reference2.push().getKey();
+
+        Shirt shirt = new Shirt(shirtName, id);
+        assert id != null;
+        reference2.child(id).setValue(shirt);
+        // reference.push().setValue(shirt);
+
     }
 
-    public void deleteShirt(View view){
+         */
+
+
+
 
     }
-
-
-
 }
+
 
 
 
