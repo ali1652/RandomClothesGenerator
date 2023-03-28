@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Outfits">
+
+    <CheckBox
+        android:id="@+id/checkBoxCoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Coat" />
+
+    <CheckBox
+        android:id="@+id/checkBoxHoodie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Hoodie/jumper"
+        android:layout_below="@id/checkBoxCoat"/>
+
+
+    <CheckBox
+        android:id="@+id/checkBoxShirt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Shirt"
+        android:layout_below="@id/checkBoxHoodie"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxTrousers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Trousers"
+        android:layout_below="@id/checkBoxShirt"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxShoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Shoes"
+        android:layout_below="@id/checkBoxTrousers"/>
+
+
+    <TextView
+        android:id="@+id/displayCoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewCOAT"
+        android:visibility="gone"
+        android:layout_below="@id/checkBoxShoes"/>
+
+
+    <TextView
+        android:id="@+id/displayHoodie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewHOODIE"
+        android:layout_below="@id/displayCoat"/>
+
+    <TextView
+        android:id="@+id/displayShirt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewSHIRT"
+        android:layout_below="@id/displayHoodie"/>
+
+    <TextView
+        android:id="@+id/displayTrouser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewTROUSER"
+        android:layout_below="@id/displayShirt"/>
+
+    <TextView
+        android:id="@+id/displayShoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewSHOES"
+        android:layout_below="@id/displayTrouser"/>
+</RelativeLayout>

@@ -3,6 +3,7 @@ package multi.screen.workoutplanner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.lang.ref.Reference;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RandomClothesTest extends AppCompatActivity {
     EditText shirts;
@@ -33,6 +36,7 @@ public class RandomClothesTest extends AppCompatActivity {
     DatabaseReference reference;
     DatabaseReference reference2;
     List<String> userShirts;
+    TextView randomItemDisplay;
 
 
     @Override
@@ -41,6 +45,9 @@ public class RandomClothesTest extends AppCompatActivity {
         setContentView(R.layout.activity_random_clothes_test);
 
         shirts = findViewById(R.id.shirtsInput);
+        randomItemDisplay = findViewById(R.id.randomItemShirt);
+
+
 
         String getShirtsInput = shirts.getText().toString();
 
@@ -50,6 +57,7 @@ public class RandomClothesTest extends AppCompatActivity {
 
 
         userShirts = new ArrayList<>();
+
 
 
         ListView listView = findViewById(R.id.listview);
@@ -62,6 +70,8 @@ public class RandomClothesTest extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userShirts.clear();
+                //DatabaseReference pleaseRef = reference.orderByValue().equalTo("Please").getRef();
+                //pleaseRef.removeValue();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     userShirts.add(snapshot.getValue().toString());
                     //String getID = snapshot.getKey();
@@ -103,11 +113,56 @@ public class RandomClothesTest extends AppCompatActivity {
 
     }
 
+
+
+        // random item generator
+        Random r = new Random();
+        int randomListNumber = r.nextInt(userShirts.size());
+        String randomShirt = userShirts.get(randomListNumber);
+        randomItemDisplay.setText(randomShirt);
+        Toast.makeText(this, randomShirt, Toast.LENGTH_SHORT).show();
+        */
+
+
+
+        /*
+        Random r = new Random();
+        if (!userShirts.isEmpty()) {
+            int randomListNumber = r.nextInt(userShirts.size());
+            String randomShirt = userShirts.get(randomListNumber);
+            randomItemDisplay.setText(randomShirt);
+            Toast.makeText(this, randomShirt, Toast.LENGTH_SHORT).show();
+
+        } else {
+           // randomItemDisplay.setText("Add a shirt to your list");
+        }
+
          */
 
 
 
 
+
+    }
+
+    public void generateRandomShirt(View view) {
+        Random r = new Random();
+        if (!userShirts.isEmpty()) {
+            int randomListNumber = r.nextInt(userShirts.size());
+            String randomShirt = userShirts.get(randomListNumber);
+            randomItemDisplay.setText(randomShirt);
+
+
+        } else {
+            randomItemDisplay.setText("Add a shirt to you list");
+        }
+
+    }
+
+
+    public void toHomePage(View view) {
+        Intent intent = new Intent(this,Home.class);
+        startActivity(intent);
     }
 }
 

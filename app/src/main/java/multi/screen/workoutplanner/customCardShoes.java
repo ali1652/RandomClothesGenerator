@@ -25,17 +25,17 @@ import java.lang.ref.Reference;
 import java.util.HashMap;
 import java.util.List;
 
-public class customCard extends ArrayAdapter<String> {
+public class customCardShoes extends ArrayAdapter<String> {
 
     DatabaseReference reference;
     DatabaseReference referenceChild;
     FirebaseDatabase database;
 
 
-    public customCard(Context context, List<String> testList) {
+    public customCardShoes(Context context, List<String> testList) {
         super(context, 0, testList);
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
-        reference = database.getReference().child("Shirts");
+        reference = database.getReference().child("Hoodies/Jumpers");
     }
 
 
