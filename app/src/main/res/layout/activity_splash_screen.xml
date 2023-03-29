@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/test"
+    android:background="@drawable/bg2"
     tools:context=".SplashScreen">
     <Button
         android:id="@+id/buttonSB"
@@ -37,18 +37,18 @@
         android:id="@+id/WeclomeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weclome to ...."
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:textAlignment="center"
+        android:layout_centerInParent="true"
         android:layout_marginBottom="20dp"
-        android:layout_centerInParent="true"/>
+        android:text="Weclome to ...."
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/SloganText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:text="Helping you reach your fitness goals"
         android:textAlignment="center"

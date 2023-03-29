@@ -4,24 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/LightBlue"
     tools:context=".LogIn">
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Log in"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:background="@color/DarkBlue"/>
 
     <EditText
         android:id="@+id/userNameLogIn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter User Name here"/>
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:hint="Enter User Name here"
+        android:layout_below="@id/Header"/>
 
     <EditText
         android:id="@+id/passwordLogIn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter Password here"
-        android:layout_below="@id/userNameLogIn" />
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:layout_below="@id/userNameLogIn"
+        android:hint="Enter Your Password Here"/>
 
     <Button
         android:id="@+id/loginButton"

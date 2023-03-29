@@ -40,7 +40,8 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void ToHome(View view) {
+
+    public void ToOufits(View view) {
         Intent intent = new Intent(this,Outfits.class);
         startActivity(intent);
     }

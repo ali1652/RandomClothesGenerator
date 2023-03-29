@@ -102,7 +102,7 @@
         android:layout_below="@id/randomItemCoats"/>
 
     <Button
-        android:id="@+id/Home"
+        android:id="@+id/Homee"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/home_icon"
