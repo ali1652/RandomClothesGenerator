@@ -1,2 +1,1 @@
-This is my major app!!
-test
+This is my major app
