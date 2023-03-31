@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogIn extends AppCompatActivity {
 
-    EditText inputUserName, inputEmail, inputPassword;
+    EditText inputEmail, inputPassword;
     Button buttonLogIn;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     ProgressDialog progressDialog;
@@ -83,10 +83,10 @@ public class LogIn extends AppCompatActivity {
         if (!email.matches(emailPattern)) {
             inputEmail.setError("Enter correct email");
         } else if (password.isEmpty() || password.length() < 6) {
-            inputPassword.setError("Enter p p");
+            inputPassword.setError("Please enter the correct password");
         } else {
             progressDialog.setMessage("Please wait while we Log In");
-            progressDialog.setTitle("Log In....");
+            progressDialog.setTitle("Loading....");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
 
@@ -110,8 +110,13 @@ public class LogIn extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(LogIn.this,RandomClothesTest.class);
+        Intent intent = new Intent(LogIn.this,Home.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    public void ToSplash(View view) {
+        Intent intent = new Intent(LogIn.this,SplashScreen.class);
         startActivity(intent);
     }
 }

@@ -32,6 +32,7 @@ public class customCard extends ArrayAdapter<String> {
     FirebaseDatabase database;
 
 
+    //connecting the card to the firebase database
     public customCard(Context context, List<String> testList) {
         super(context, 0, testList);
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -39,7 +40,7 @@ public class customCard extends ArrayAdapter<String> {
     }
 
 
-
+    // getting the data to display on the card
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -62,7 +63,7 @@ public class customCard extends ArrayAdapter<String> {
         textView.setText(string);
         return convertView;
     }
-
+    // Delete function for delete button
     private void delete(int position) {
         String item = getItem(position);
         reference.orderByValue().equalTo(item).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -75,7 +76,7 @@ public class customCard extends ArrayAdapter<String> {
                             public void onSuccess(Void unused) {
                                 remove(item);
                                 notifyDataSetChanged();
-                                Toast.makeText(getContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Shirt Deleted", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

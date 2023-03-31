@@ -81,7 +81,7 @@
         android:id="@+id/headingAddButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please enter below to add to your shoe wardrobe"
+        android:text="Please enter below to add to your shoes wardrobe"
         android:textSize="20sp"
         android:layout_below="@id/shoeHeader"/>
 
@@ -90,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Not sure what to wear click on the button below to the right!"
+        android:text="Not sure what shoes to wear click on the button below to the right!"
         android:layout_below="@id/shoesInput"/>
 
     <TextView

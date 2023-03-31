@@ -83,12 +83,13 @@ public class Coats extends AppCompatActivity {
     public void buttonClick(View view) {
 
         String getCoatsInput = Coats.getText().toString();
+        Coats.setText("");
 
         if (getCoatsInput.isEmpty()) {
-            Toast.makeText(Coats.this, "Enter value", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Coats.this, "Enter a coat", Toast.LENGTH_SHORT).show();
         } else {
             reference.push().setValue(getCoatsInput);
-            Toast.makeText(Coats.this, "trouser added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Coats.this, "Coat added", Toast.LENGTH_SHORT).show();
         }
 
         /*

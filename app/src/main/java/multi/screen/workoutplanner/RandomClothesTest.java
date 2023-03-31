@@ -70,11 +70,9 @@ public class RandomClothesTest extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 userShirts.clear();
-                //DatabaseReference pleaseRef = reference.orderByValue().equalTo("Please").getRef();
-                //pleaseRef.removeValue();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     userShirts.add(snapshot.getValue().toString());
-                    //String getID = snapshot.getKey();
                 }
                 arrayAdapter.notifyDataSetChanged();
             }
@@ -93,9 +91,10 @@ public class RandomClothesTest extends AppCompatActivity {
     public void buttonClick(View view) {
 
         String getShirtsInput = shirts.getText().toString();
+        shirts.setText("");
 
                         if (getShirtsInput.isEmpty()) {
-                            Toast.makeText(RandomClothesTest.this, "Enter value", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RandomClothesTest.this, "Enter a shirt", Toast.LENGTH_SHORT).show();
                         } else {
                             reference.push().setValue(getShirtsInput);
                             Toast.makeText(RandomClothesTest.this, "Shirt added", Toast.LENGTH_SHORT).show();
@@ -145,6 +144,7 @@ public class RandomClothesTest extends AppCompatActivity {
 
     }
 
+    //generating the random shirt
     public void generateRandomShirt(View view) {
         Random r = new Random();
         if (!userShirts.isEmpty()) {
@@ -159,7 +159,7 @@ public class RandomClothesTest extends AppCompatActivity {
 
     }
 
-
+    //home button function
     public void toHomePage(View view) {
         Intent intent = new Intent(this,Home.class);
         startActivity(intent);

@@ -13,6 +13,8 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
+    ////////////// setting the navigation buttons functions
+
 
     public void ToShirt(View view) {
         Intent intent = new Intent(this,RandomClothesTest.class);

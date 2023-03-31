@@ -31,11 +31,11 @@ public class customCardHoodiesJumpers extends ArrayAdapter<String> {
     DatabaseReference referenceChild;
     FirebaseDatabase database;
 
-
+    //connecting the card to the firebase database
     public customCardHoodiesJumpers(Context context, List<String> testList) {
         super(context, 0, testList);
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
-        reference = database.getReference().child("Hoodies/Jumpers");
+        reference = database.getReference().child("HoodiesJumpers");
     }
 
 
@@ -75,7 +75,7 @@ public class customCardHoodiesJumpers extends ArrayAdapter<String> {
                             public void onSuccess(Void unused) {
                                 remove(item);
                                 notifyDataSetChanged();
-                                Toast.makeText(getContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Hoodie/Jumper Deleted", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

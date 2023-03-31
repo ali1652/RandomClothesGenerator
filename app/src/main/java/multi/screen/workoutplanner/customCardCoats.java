@@ -26,7 +26,7 @@ public class customCardCoats extends ArrayAdapter<String> {
     DatabaseReference referenceChild;
     FirebaseDatabase database;
 
-
+    //connecting the card to the firebase database
     public customCardCoats(Context context, List<String> testList) {
         super(context, 0, testList);
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -70,7 +70,7 @@ public class customCardCoats extends ArrayAdapter<String> {
                             public void onSuccess(Void unused) {
                                 remove(item);
                                 notifyDataSetChanged();
-                                Toast.makeText(getContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Coat Deleted", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

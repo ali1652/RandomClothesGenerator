@@ -4,30 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
+    android:background="@drawable/bg5"
     tools:context=".SplashScreen">
-    <Button
-        android:id="@+id/buttonSB"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="Main Screen"
-        android:layout_alignParentTop="true"
-        />
+
     <Button
         android:id="@+id/buttonLogIn"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_above="@id/buttonSignUp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:text="LogIn"
-        android:layout_alignParentBottom="true"
         android:onClick="toLogIn"
         />
 
     <Button
         android:id="@+id/buttonSignUp"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Sign Up"
-        android:layout_toRightOf="@id/buttonLogIn"
+        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_alignParentBottom="true"
         android:onClick="toSignUp"
@@ -37,20 +33,20 @@
         android:id="@+id/WeclomeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="250dp"
         android:layout_marginBottom="20dp"
-        android:text="Weclome to ...."
+        android:text="AKs Outfit Generator "
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/DarkBlue"
         android:textSize="30dp" />
 
     <TextView
         android:id="@+id/SloganText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:text="Helping you reach your fitness goals"
+        android:textColor="@color/DarkBlue"
+        android:textSize="20dp"
+        android:text="Helping you choose your outifts!"
         android:textAlignment="center"
         android:layout_below="@id/WeclomeText"/>
 

@@ -65,14 +65,14 @@ public class SignUp extends AppCompatActivity {
             inputEmail.setError("Enter correct email");
         }else if(password.isEmpty()|| password.length()<6)
         {
-            inputPassword.setError("Enter p p");
+            inputPassword.setError("Please enter a password that is at leat six characters");
         }else if (!password.equals(password2))
         {
             inputPassword2.setError("Passwords not not match");
         }else
         {
-            progressDialog.setMessage("Please wait while we Register you account");
-            progressDialog.setTitle("Registation....");
+            progressDialog.setMessage("Please wait while we register you account");
+            progressDialog.setTitle("Registering....");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
 
@@ -99,7 +99,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity(){
-        Intent intent = new Intent(SignUp.this,RandomClothesTest.class);
+        Intent intent = new Intent(SignUp.this,Home.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

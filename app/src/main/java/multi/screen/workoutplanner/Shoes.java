@@ -82,12 +82,13 @@ public class Shoes extends AppCompatActivity {
     public void buttonClick(View view) {
 
         String getshoesInput = shoes.getText().toString();
+        shoes.setText("");
 
         if (getshoesInput.isEmpty()) {
-            Toast.makeText(Shoes.this, "Enter value", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Shoes.this, "Enter shoes", Toast.LENGTH_SHORT).show();
         } else {
             reference.push().setValue(getshoesInput);
-            Toast.makeText(Shoes.this, "trouser added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Shoes.this, "Shoes added", Toast.LENGTH_SHORT).show();
         }
 
         /*

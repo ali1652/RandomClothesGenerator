@@ -81,12 +81,12 @@ public class HoodiesJumpers extends AppCompatActivity {
     public void buttonClick(View view) {
 
         String gethoodiesInput = hoodies.getText().toString();
-
+        hoodies.setText("");
         if (gethoodiesInput.isEmpty()) {
-            Toast.makeText(HoodiesJumpers.this, "Enter value", Toast.LENGTH_SHORT).show();
+            Toast.makeText(HoodiesJumpers.this, "Enter a hoodie/jumper", Toast.LENGTH_SHORT).show();
         } else {
             reference.push().setValue(gethoodiesInput);
-            Toast.makeText(HoodiesJumpers.this, "trouser added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(HoodiesJumpers.this, "Hoodie/Jumper added", Toast.LENGTH_SHORT).show();
         }
 
         /*

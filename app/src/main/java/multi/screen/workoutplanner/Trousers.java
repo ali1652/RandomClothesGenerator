@@ -56,6 +56,7 @@ public class Trousers extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 usertrousers.clear();
+                trousers.setText("Black ");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     usertrousers.add(snapshot.getValue().toString());
                     //String getID = snapshot.getKey();
@@ -82,7 +83,7 @@ public class Trousers extends AppCompatActivity {
             Toast.makeText(Trousers.this, "Enter value", Toast.LENGTH_SHORT).show();
         } else {
             reference.push().setValue(gettrousersInput);
-            Toast.makeText(Trousers.this, "trouser added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Trousers.this, "Trouser added", Toast.LENGTH_SHORT).show();
         }
 
         /*

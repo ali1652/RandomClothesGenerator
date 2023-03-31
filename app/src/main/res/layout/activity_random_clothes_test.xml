@@ -91,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Not sure what to wear click on the button below to the right!"
+        android:text="Not sure what shirt to wear click on the button below to the right!"
         android:layout_below="@id/shirtsInput"/>
 
     <TextView
