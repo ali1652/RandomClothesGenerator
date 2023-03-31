@@ -38,16 +38,17 @@ public class Trousers extends AppCompatActivity {
 
         String getrousersInput = trousers.getText().toString();
 
-        //referencing the database
+        //referencing the database and child node specified
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = database.getReference().child("Trousers");
 
-
+        //creating arrayList for trousers
         usertrousers = new ArrayList<>();
 
 
         ListView listViewT = findViewById(R.id.listviewT);
 
+        //setting arrayadapter with the userShirts list and custom card view
         ArrayAdapter<String> arrayAdapter = new customCardTrousers(this, usertrousers);
         listViewT.setAdapter(arrayAdapter);
 
@@ -55,12 +56,13 @@ public class Trousers extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clears the list one there has been a change
                 usertrousers.clear();
-                trousers.setText("Black ");
+                //then goes through database and adds values back to list
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     usertrousers.add(snapshot.getValue().toString());
-                    //String getID = snapshot.getKey();
                 }
+                //tells array adapter to update
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -74,34 +76,20 @@ public class Trousers extends AppCompatActivity {
     }
 
     // adds data to the firebase database once user has inputted a trouser
-
     public void buttonClick(View view) {
 
         String gettrousersInput = trousers.getText().toString();
-
+        trousers.setText("");
         if (gettrousersInput.isEmpty()) {
             Toast.makeText(Trousers.this, "Enter value", Toast.LENGTH_SHORT).show();
         } else {
+            //adding to the database
             reference.push().setValue(gettrousersInput);
             Toast.makeText(Trousers.this, "Trouser added", Toast.LENGTH_SHORT).show();
         }
 
-        /*
-        reference2 = database.getReference("trousers");
-        String trouserName = gettrousersInput;
-        String id = reference2.push().getKey();
-
-        trouser trouser = new trouser(trouserName, id);
-        assert id != null;
-        reference2.child(id).setValue(trouser);
-        // reference.push().setValue(trouser);
-
     }
-
-         */
-
-    }
-
+    //generating the random shirt and setting to the the random shirt display box
     public void generateRandomTrouser(View view) {
         Random r = new Random();
         if (!usertrousers.isEmpty()) {

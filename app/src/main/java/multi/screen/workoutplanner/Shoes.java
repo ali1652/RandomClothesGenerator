@@ -43,16 +43,17 @@ public class Shoes extends AppCompatActivity {
 
         String geshoesInput = shoes.getText().toString();
 
-        //referencing the database
+        //referencing the database and child node specified
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = database.getReference().child("Shoes");
 
-
+        //creating arrayList for coats
         usershoes = new ArrayList<>();
 
 
         ListView listViewT = findViewById(R.id.listviewS);
 
+        //setting arrayadapter with the userCoats list and custom card view
         ArrayAdapter<String> arrayAdapter = new customCardShoes(this, usershoes);
         listViewT.setAdapter(arrayAdapter);
 
@@ -60,11 +61,14 @@ public class Shoes extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clears the list one there has been a change
                 usershoes.clear();
+                //then goes through database and adds values back to list
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     usershoes.add(snapshot.getValue().toString());
                     //String getID = snapshot.getKey();
                 }
+                //tells array adapter to update
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -77,37 +81,23 @@ public class Shoes extends AppCompatActivity {
 
     }
 
-    // adds data to the firebase database once user has inputted a trouser
-
+    // adds data to the firebase database once user has inputted shoes
     public void buttonClick(View view) {
 
         String getshoesInput = shoes.getText().toString();
         shoes.setText("");
-
         if (getshoesInput.isEmpty()) {
             Toast.makeText(Shoes.this, "Enter shoes", Toast.LENGTH_SHORT).show();
         } else {
+            //adding to the database
             reference.push().setValue(getshoesInput);
             Toast.makeText(Shoes.this, "Shoes added", Toast.LENGTH_SHORT).show();
         }
 
-        /*
-        reference2 = database.getReference("shoes");
-        String trouserName = getshoesInput;
-        String id = reference2.push().getKey();
-
-        trouser trouser = new trouser(trouserName, id);
-        assert id != null;
-        reference2.child(id).setValue(trouser);
-        // reference.push().setValue(trouser);
 
     }
 
-         */
-
-
-    }
-
+    //generating the random shoes and setting to the the random shoes display box
     public void generateRandomShoes(View view) {
         Random r = new Random();
         if (!usershoes.isEmpty()) {

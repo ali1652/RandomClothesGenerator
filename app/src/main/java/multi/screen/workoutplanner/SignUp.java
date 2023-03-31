@@ -33,8 +33,6 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
-        inputUserName = findViewById(R.id.userName);
         inputEmail = findViewById(R.id.email);
         inputPassword = findViewById(R.id.password);
         inputPassword2 = findViewById(R.id.confirmPassword);
@@ -42,8 +40,6 @@ public class SignUp extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-
-       // DB = new DBHelper(this);
     }
     public void signUpFunction(View view) {
         PerforAuth();
@@ -60,10 +56,12 @@ public class SignUp extends AppCompatActivity {
         String password = inputPassword.getText().toString();
         String password2 = inputPassword2.getText().toString();
 
+        //making sure an email is entered
         if(!email.matches(emailPattern))
         {
             inputEmail.setError("Enter correct email");
         }else if(password.isEmpty()|| password.length()<6)
+        //only accepts passwords if they match and are at least 6 characters
         {
             inputPassword.setError("Please enter a password that is at leat six characters");
         }else if (!password.equals(password2))
@@ -87,7 +85,7 @@ public class SignUp extends AppCompatActivity {
                     }else
                     {
                         progressDialog.dismiss();
-                        Toast.makeText(SignUp.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUp.this, "Registration Failed"+task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -105,38 +103,6 @@ public class SignUp extends AppCompatActivity {
     }
 
 
-/*
-    public void signUpFunction(View view) {
-        String user = userName.getText().toString();
-        String Email = email.getText().toString();
-        String pass = password.getText().toString();
-        String repass = password2.getText().toString();
-
-        if(user.equals("")||Email.equals("")|| pass.equals("") || repass.equals(""))
-            Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-        else{
-            if(pass.equals(repass)) {
-                Boolean checkUser = DB.checkUserName(user);
-                if (checkUser == false) {
-                    Boolean insert = DB.insertData(user, Email, pass);
-                    if (insert == true) {
-                        Toast.makeText(this, "Registered Sucessfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), LogIn.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else{
-                    Toast.makeText(this, "User already exists", Toast.LENGTH_SHORT).show();
-                }
-            }else{
-                Toast.makeText(this, "Passwords not matching", Toast.LENGTH_SHORT).show();
-            }
-        }
 
 
-    }
-
- */
 }

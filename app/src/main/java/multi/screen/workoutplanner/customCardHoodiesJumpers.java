@@ -31,7 +31,8 @@ public class customCardHoodiesJumpers extends ArrayAdapter<String> {
     DatabaseReference referenceChild;
     FirebaseDatabase database;
 
-    //connecting the card to the firebase database
+    //constructor for card
+    //connecting the card to the shirts section of firebase database
     public customCardHoodiesJumpers(Context context, List<String> testList) {
         super(context, 0, testList);
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -39,12 +40,13 @@ public class customCardHoodiesJumpers extends ArrayAdapter<String> {
     }
 
 
-
+    // getting the data to display on the card
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         String string = getItem(position);
         if (convertView == null) {
+            //setting the cards to the card.xml layout created
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.card, parent, false);
 
             Button deleteButton = convertView.findViewById(R.id.deleteButtonTS);
@@ -62,17 +64,20 @@ public class customCardHoodiesJumpers extends ArrayAdapter<String> {
         textView.setText(string);
         return convertView;
     }
-
+    // Delete function for delete button
     private void delete(int position) {
         String item = getItem(position);
+        //obtaining specific card and database item
         reference.orderByValue().equalTo(item).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
+                    //gets snapshot of item and deletes it
                     for (DataSnapshot snapshot : task.getResult().getChildren()) {
                         snapshot.getRef().removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
+                                //removing item from list and listview
                                 remove(item);
                                 notifyDataSetChanged();
                                 Toast.makeText(getContext(), "Hoodie/Jumper Deleted", Toast.LENGTH_SHORT).show();

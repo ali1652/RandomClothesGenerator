@@ -44,16 +44,17 @@ public class Coats extends AppCompatActivity {
 
         String geCoatsInput = Coats.getText().toString();
 
-        //referencing the database
+        //referencing the database and child node specified
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = database.getReference().child("Coats");
 
-
+        //creating arrayList for coats
         userCoats = new ArrayList<>();
 
 
         ListView listViewC = findViewById(R.id.listviewC);
 
+        //setting arrayadapter with the userCoats list and custom card view
         ArrayAdapter<String> arrayAdapter = new customCardCoats(this, userCoats);
         listViewC.setAdapter(arrayAdapter);
 
@@ -61,11 +62,14 @@ public class Coats extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clears the list one there has been a change
                 userCoats.clear();
+                //then goes through database and adds values back to list
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     userCoats.add(snapshot.getValue().toString());
-                    //String getID = snapshot.getKey();
+
                 }
+                //updates arrayadapter to update
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -79,7 +83,6 @@ public class Coats extends AppCompatActivity {
     }
 
     // adds data to the firebase database once user has inputted a trouser
-
     public void buttonClick(View view) {
 
         String getCoatsInput = Coats.getText().toString();
@@ -88,27 +91,13 @@ public class Coats extends AppCompatActivity {
         if (getCoatsInput.isEmpty()) {
             Toast.makeText(Coats.this, "Enter a coat", Toast.LENGTH_SHORT).show();
         } else {
+            //adding to the database
             reference.push().setValue(getCoatsInput);
             Toast.makeText(Coats.this, "Coat added", Toast.LENGTH_SHORT).show();
         }
 
-        /*
-        reference2 = database.getReference("Coats");
-        String trouserName = getCoatsInput;
-        String id = reference2.push().getKey();
-
-        trouser trouser = new trouser(trouserName, id);
-        assert id != null;
-        reference2.child(id).setValue(trouser);
-        // reference.push().setValue(trouser);
-
     }
-
-         */
-
-
-    }
-
+    //generating the random coat and setting to the the random coat display box
     public void generateRandomCoats(View view) {
         Random r = new Random();
         if (!userCoats.isEmpty()) {

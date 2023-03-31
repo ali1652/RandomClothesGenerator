@@ -49,7 +49,7 @@ public class Outfits extends AppCompatActivity {
     Button refreshShirt;
     Button refreshTrousers;
     Button refreshShoes;
-////////////// commit -
+
 
     FirebaseDatabase database;
     DatabaseReference referenceCoat;
@@ -96,10 +96,11 @@ public class Outfits extends AppCompatActivity {
 
 
 
-
+        // function for when checkbox is clicked  is clicked
         checkBoxCoat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //shows all the appropriate items for that type of clothing
                 randomCoat.setVisibility(isChecked ? View.VISIBLE : View.GONE);
                 coatHeader.setVisibility(isChecked ? View.VISIBLE : View.GONE);
                 refreshCoat.setVisibility(isChecked ? View.VISIBLE : View.GONE);
@@ -148,6 +149,8 @@ public class Outfits extends AppCompatActivity {
             }
         });
 
+
+        //creating references for each section
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
         referenceCoat = database.getReference().child("Coats");
         referenceHoodie = database.getReference().child("HoodiesJumpers");
@@ -155,6 +158,8 @@ public class Outfits extends AppCompatActivity {
         referenceShoes = database.getReference().child("Shoes");
         referenceTrouser = database.getReference().child("Trousers");
 
+
+        //creating lists for items to store the firebase data in
         List<String> shirtList = new ArrayList<>();
         List<String> coatList = new ArrayList<>();
         List<String> hoodieList = new ArrayList<>();
@@ -166,12 +171,13 @@ public class Outfits extends AppCompatActivity {
             public void onClick(View v) {
                 referenceCoat.addValueEventListener(new ValueEventListener() {
                     @Override
-
+                    //gets the data from firebase
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             String coat = snapshot.getValue(String.class);
                             coatList.add(coat);
 
+                            //from the data from firebase it generates a random item for the section
                             Random r = new Random();
                             if (!coatList.isEmpty()) {
                                 int randomListNumber = r.nextInt(coatList.size());
@@ -193,6 +199,7 @@ public class Outfits extends AppCompatActivity {
             }
         });
 
+        //refresh and generate new hoodie function
         refreshHoodie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -226,6 +233,7 @@ public class Outfits extends AppCompatActivity {
             }
         });
 
+        //refresh and generate new hoodie function
         refreshShirt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -259,6 +267,7 @@ public class Outfits extends AppCompatActivity {
             }
         });
 
+        //refresh and generate new hoodie function
         refreshTrousers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -291,6 +300,7 @@ public class Outfits extends AppCompatActivity {
             }
         });
 
+        //refresh and generate new hoodie function
         refreshShoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -351,19 +361,22 @@ public class Outfits extends AppCompatActivity {
 
 
 
-
+        //generating random outfit function
         generateOutfit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
         // Add a ValueEventListener to retrieve the data
                 referenceShoes.addValueEventListener(new ValueEventListener() {
                     @Override
-
+                    // same for each item
+                    //gets a snapshot of data from the database
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             String shoes = snapshot.getValue(String.class);
+                            // adds it to the shoelist list
                             shoeList.add(shoes);
 
+                            //generates a random item from shoelist and sets it to the specified textbox
                             Random r = new Random();
                             if (!shoeList.isEmpty()) {
                                 int randomListNumber = r.nextInt(shoeList.size());
@@ -381,6 +394,8 @@ public class Outfits extends AppCompatActivity {
                     public void onCancelled (DatabaseError databaseError){
                     }
                 });
+
+
 
                 referenceTrouser.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -492,6 +507,8 @@ public class Outfits extends AppCompatActivity {
             /////
         });
 
+
+        //goes back to home function
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

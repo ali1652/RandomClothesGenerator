@@ -34,7 +34,6 @@ public class RandomClothesTest extends AppCompatActivity {
     EditText shirts;
     FirebaseDatabase database;
     DatabaseReference reference;
-    DatabaseReference reference2;
     List<String> userShirts;
     TextView randomItemDisplay;
 
@@ -51,17 +50,18 @@ public class RandomClothesTest extends AppCompatActivity {
 
         String getShirtsInput = shirts.getText().toString();
 
-        //referencing the database
+        //referencing the database and child node specified
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = database.getReference().child("Shirts");
 
-
+        //creating arrayList for shirts
         userShirts = new ArrayList<>();
 
 
 
         ListView listView = findViewById(R.id.listview);
 
+        //setting arrayadapter with the userShirts list and custom card view
         ArrayAdapter<String> arrayAdapter = new customCard(this, userShirts);
         listView.setAdapter(arrayAdapter);
 
@@ -69,11 +69,13 @@ public class RandomClothesTest extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clears the list one there has been a change
                 userShirts.clear();
-
+                //then goes through database and adds values back to list
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     userShirts.add(snapshot.getValue().toString());
                 }
+                //tells array adapter to update
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -87,72 +89,26 @@ public class RandomClothesTest extends AppCompatActivity {
     }
 
     // adds data to the firebase database once user has inputted a shirt
-
     public void buttonClick(View view) {
-
         String getShirtsInput = shirts.getText().toString();
         shirts.setText("");
-
-                        if (getShirtsInput.isEmpty()) {
-                            Toast.makeText(RandomClothesTest.this, "Enter a shirt", Toast.LENGTH_SHORT).show();
-                        } else {
-                            reference.push().setValue(getShirtsInput);
-                            Toast.makeText(RandomClothesTest.this, "Shirt added", Toast.LENGTH_SHORT).show();
-                        }
-
-        /*
-        reference2 = database.getReference("Shirts");
-        String shirtName = getShirtsInput;
-        String id = reference2.push().getKey();
-
-        Shirt shirt = new Shirt(shirtName, id);
-        assert id != null;
-        reference2.child(id).setValue(shirt);
-        // reference.push().setValue(shirt);
-
-    }
-
-
-
-        // random item generator
-        Random r = new Random();
-        int randomListNumber = r.nextInt(userShirts.size());
-        String randomShirt = userShirts.get(randomListNumber);
-        randomItemDisplay.setText(randomShirt);
-        Toast.makeText(this, randomShirt, Toast.LENGTH_SHORT).show();
-        */
-
-
-
-        /*
-        Random r = new Random();
-        if (!userShirts.isEmpty()) {
-            int randomListNumber = r.nextInt(userShirts.size());
-            String randomShirt = userShirts.get(randomListNumber);
-            randomItemDisplay.setText(randomShirt);
-            Toast.makeText(this, randomShirt, Toast.LENGTH_SHORT).show();
-
+        if (getShirtsInput.isEmpty()) {
+            Toast.makeText(RandomClothesTest.this, "Enter a shirt", Toast.LENGTH_SHORT).show();
         } else {
-           // randomItemDisplay.setText("Add a shirt to your list");
+            //adding to the database
+            reference.push().setValue(getShirtsInput);
+            Toast.makeText(RandomClothesTest.this, "Shirt added", Toast.LENGTH_SHORT).show();
         }
 
-         */
-
-
-
-
-
     }
 
-    //generating the random shirt
+    //generating the random shirt and setting to the the random shirt display box
     public void generateRandomShirt(View view) {
         Random r = new Random();
         if (!userShirts.isEmpty()) {
             int randomListNumber = r.nextInt(userShirts.size());
             String randomShirt = userShirts.get(randomListNumber);
             randomItemDisplay.setText(randomShirt);
-
-
         } else {
             randomItemDisplay.setText("Add a shirt to you list");
         }

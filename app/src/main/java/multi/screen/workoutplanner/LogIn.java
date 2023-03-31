@@ -26,7 +26,6 @@ public class LogIn extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-    //DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,6 @@ public class LogIn extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        //DB = new DBHelper(this);
 
         buttonLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,46 +47,26 @@ public class LogIn extends AppCompatActivity {
                 PerfromAuth();
             }
         });
-        /*
-        buttonLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String user = userNameL.getText().toString();
-                String password = passwordL.getText().toString();
-
-                if(user.equals("")|| password.equals(""))
-                    Toast.makeText(LogIn.this, "Enter all fields", Toast.LENGTH_SHORT).show();
-                else{
-                    Boolean checkUserNameAndPassword = DB.checkUserPassword(user,password);
-                    if(checkUserNameAndPassword== true){
-                        Toast.makeText(LogIn.this, "Sign in Sucessful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(),WorkoutHomePage.class);
-                        startActivity(intent);
-                        //if username and password dont match
-                    } else{
-                        Toast.makeText(LogIn.this, "Username and password dont match", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
-         */
     }
 
+    //authorization for log in feature
     private void PerfromAuth() {
         String email = inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
 
-
+        // making sure email is entered in a correct email format
         if (!email.matches(emailPattern)) {
             inputEmail.setError("Enter correct email");
+            //password authentication
         } else if (password.isEmpty() || password.length() < 6) {
             inputPassword.setError("Please enter the correct password");
         } else {
+            //displays dialog before loading in to home screen
             progressDialog.setMessage("Please wait while we Log In");
             progressDialog.setTitle("Loading....");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
+
 
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -97,11 +75,12 @@ public class LogIn extends AppCompatActivity {
                     {
                         progressDialog.dismiss();
                         sendUserToNextActivity();
+                        //shows this if sucessful and takes user to home page
                         Toast.makeText(LogIn.this, "Log in Sucessful", Toast.LENGTH_SHORT).show();
                     }else
                     {
                         progressDialog.dismiss();
-                        Toast.makeText(LogIn.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LogIn.this, "Log in Failed"+task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });

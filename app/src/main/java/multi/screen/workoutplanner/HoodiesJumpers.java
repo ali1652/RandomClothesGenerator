@@ -42,16 +42,17 @@ public class HoodiesJumpers extends AppCompatActivity {
 
         String gehoodiesInput = hoodies.getText().toString();
 
-        //referencing the database
+        //referencing the database and child node specified
         database = FirebaseDatabase.getInstance("https://workoutplanner-49f96-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = database.getReference().child("HoodiesJumpers");
 
-
+        //creatign arrayList for hoodies/jmpers
         userhoodies = new ArrayList<>();
 
 
         ListView listViewH = findViewById(R.id.listviewH);
 
+        //setting arrayadapter with the userCoats list and custom card view
         ArrayAdapter<String> arrayAdapter = new customCardHoodiesJumpers(this, userhoodies);
         listViewH.setAdapter(arrayAdapter);
 
@@ -59,11 +60,13 @@ public class HoodiesJumpers extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //clears the list one there has been a change
                 userhoodies.clear();
+                //then goes through database and adds values back to list
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     userhoodies.add(snapshot.getValue().toString());
-                    //String getID = snapshot.getKey();
                 }
+                //updates array adapter to update
                 arrayAdapter.notifyDataSetChanged();
             }
 
@@ -76,40 +79,22 @@ public class HoodiesJumpers extends AppCompatActivity {
 
     }
 
-    // adds data to the firebase database once user has inputted a trouser
-
+    // adds data to the firebase database once user has inputted hoodie/jumper
     public void buttonClick(View view) {
-
         String gethoodiesInput = hoodies.getText().toString();
         hoodies.setText("");
         if (gethoodiesInput.isEmpty()) {
             Toast.makeText(HoodiesJumpers.this, "Enter a hoodie/jumper", Toast.LENGTH_SHORT).show();
         } else {
+            //adding to the database
             reference.push().setValue(gethoodiesInput);
             Toast.makeText(HoodiesJumpers.this, "Hoodie/Jumper added", Toast.LENGTH_SHORT).show();
         }
 
-        /*
-        reference2 = database.getReference("hoodies");
-        String trouserName = gethoodiesInput;
-        String id = reference2.push().getKey();
-
-        trouser trouser = new trouser(trouserName, id);
-        assert id != null;
-        reference2.child(id).setValue(trouser);
-        // reference.push().setValue(trouser);
-
-    }
-
-         */
-
-
-
-
 
 
     }
-
+    //generating the random hoodie/jumper and setting to the the random hoodie display box
     public void generateRandomHoodie(View view) {
         Random r = new Random();
         if (!userhoodies.isEmpty()) {
