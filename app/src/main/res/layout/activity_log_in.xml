@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/LightBlue"
     tools:context=".LogIn">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Log in"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:background="@color/DarkBlue"/>
+
+    <EditText
+        android:id="@+id/userNameLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/Header"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/white"
+        android:hint="Enter Your E-mail Here"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/passwordLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:inputType="textPassword"
+        android:layout_below="@id/userNameLogIn"
+        android:hint="Enter Your Password Here"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/passwordLogIn"
+        android:text="Log In" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="ToSplash"
+        android:background="@drawable/backbutton" />
+</RelativeLayout>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightBlue">
+
+
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightBlue"
+    tools:context=".Outfits">
+
+
+
+    <TextView
+        android:id="@+id/outfitHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Outfit Generator"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:background="@color/DarkBlue"/>
+
+    <TextView
+        android:id="@+id/outfitSubHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please select the items you want in your outfit:"
+        android:textSize="25sp"
+        android:layout_below="@id/outfitHeader"
+        />
+
+    <CheckBox
+        android:id="@+id/checkBoxCoat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/outfitSubHeader"
+        android:textColor="@color/White"
+        android:textSize="25sp"
+        android:buttonTint="@color/black"
+        android:text="Add Coat" />
+
+    <CheckBox
+        android:id="@+id/checkBoxHoodie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/White"
+        android:textSize="25sp"
+        android:buttonTint="@color/black"
+        android:text="Add Hoodie/jumper"
+        android:layout_below="@id/outfitSubHeader"
+        android:layout_toRightOf="@id/checkBoxCoat"/>
+
+
+    <CheckBox
+        android:id="@+id/checkBoxShirt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/White"
+        android:textSize="25sp"
+        android:buttonTint="@color/black"
+        android:text="Add Shirt"
+        android:layout_below="@id/checkBoxHoodie"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxTrousers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/White"
+        android:textSize="25sp"
+        android:buttonTint="@color/black"
+        android:text="Add Trousers"
+        android:layout_below="@id/checkBoxHoodie"
+        android:layout_toRightOf="@id/checkBoxShirt"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxShoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/White"
+        android:textSize="25sp"
+        android:buttonTint="@color/black"
+        android:text="Add Shoes"
+        android:layout_below="@id/checkBoxTrousers"/>
+
+    <Button
+        android:id="@+id/generateOutfit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Outfit"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/checkBoxShoes"
+        android:layout_below="@id/checkBoxTrousers"/>
+
+    <TextView
+        android:id="@+id/headingCoat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coat"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:layout_below="@id/checkBoxShoes"/>
+
+
+    <EditText
+        android:id="@+id/displayCoat"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:hint="Coat"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:layout_below="@id/headingCoat"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/refreshcoats"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rgen"
+        android:onClick="refer"
+        android:layout_toRightOf="@id/displayCoat"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/headingCoat"
+        app:itemIconTint="@color/Blackk"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:id="@+id/headingHoodie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hoodie/Jumper"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:layout_below="@id/displayCoat"/>
+
+    <EditText
+        android:id="@+id/displayHoodie"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:hint="Hoodie"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_below="@id/headingHoodie"/>
+
+    <Button
+        android:id="@+id/refreshHoodie"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rgen"
+        android:layout_toRightOf="@id/displayHoodie"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/headingHoodie"
+        app:itemIconTint="@color/Blackk"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/headingShirt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shirt"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:layout_below="@id/displayHoodie"/>
+
+    <EditText
+        android:id="@+id/displayShirt"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:hint="Enter your shirt here"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_below="@id/headingShirt"/>
+
+    <Button
+        android:id="@+id/refreshShirt"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rgen"
+        android:layout_toRightOf="@id/displayShirt"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/headingShirt"
+        app:itemIconTint="@color/Blackk"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/headingTrouser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trouser"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:layout_below="@id/displayShirt"/>
+
+    <EditText
+        android:id="@+id/displayTrouser"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:hint="Trouser"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_below="@id/headingTrouser"/>
+
+    <Button
+        android:id="@+id/refreshTrouser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rgen"
+        android:layout_toRightOf="@id/displayTrouser"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/headingTrouser"
+        app:itemIconTint="@color/Blackk"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/headingShoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shoes"
+        android:textSize="25sp"
+        android:visibility="gone"
+        android:layout_below="@id/displayTrouser"/>
+
+    <EditText
+        android:id="@+id/displayShoes"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:hint="Shoes"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_below="@id/headingShoes"/>
+
+    <Button
+        android:id="@+id/refreshShoes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rgen"
+        android:layout_toRightOf="@id/displayShoes"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/headingShoes"
+        app:itemIconTint="@color/Blackk"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/home_icon"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        />
+
+
+</RelativeLayout>
+</ScrollView>

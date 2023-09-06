@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightBlue"
+    tools:context=".Shoes">
+
+    <TextView
+        android:id="@+id/shoeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Shoes"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:background="@color/DarkBlue"/>
+
+
+    <EditText
+        android:id="@+id/shoesInput"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:hint="Enter your shoes here"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:layout_below="@id/headingAddButton"/>
+
+    <TextView
+        android:id="@+id/randomItemShoes"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:hint="Random Shoes"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_below="@id/randomHeader"/>
+
+
+    <Button
+        android:id="@+id/addShoe"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="buttonClick"
+        android:background="@drawable/plusblack"
+        android:layout_below="@id/headingAddButton"
+        android:layout_toRightOf="@id/shoesInput"
+        android:layout_marginLeft="3dp"
+        />
+
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rgen"
+        android:onClick="generateRandomShoes"
+        android:layout_toRightOf="@id/randomItemShoes"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/randomHeader"
+        app:itemIconTint="@color/Blackk"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/listviewS"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/listHeader"
+        android:layout_marginTop="0dp"
+        />
+
+
+    <TextView
+        android:id="@+id/headingAddButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please enter below to add to your shoes wardrobe"
+        android:textSize="20sp"
+        android:layout_below="@id/shoeHeader"/>
+
+    <TextView
+        android:id="@+id/randomHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Not sure what shoes to wear click on the button below to the right!"
+        android:layout_below="@id/shoesInput"/>
+
+    <TextView
+        android:id="@+id/listHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your wardrobe of shoes"
+        android:textSize="30sp"
+        android:layout_below="@id/randomItemShoes"/>
+
+    <Button
+        android:id="@+id/Home"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/home_icon"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:onClick="toHomePage" />
+</RelativeLayout>

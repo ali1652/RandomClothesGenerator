@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightBlue"
+    tools:context=".HoodiesJumpers">
+
+    <TextView
+        android:id="@+id/hoodieHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Hoodies/Jumpers"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:background="@color/DarkBlue"/>
+
+
+    <EditText
+        android:id="@+id/hoodieInput"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:hint="Enter your hoodie/jumper here"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:padding="10dp"
+        android:layout_below="@id/headingAddButton"/>
+
+    <TextView
+        android:id="@+id/randomItemHoodie"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:hint="Random Hoodie/Jumper"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:layout_below="@id/randomHeader"/>
+
+
+    <Button
+        android:id="@+id/addHoodie"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="buttonClick"
+        android:background="@drawable/plusblack"
+        android:layout_below="@id/headingAddButton"
+        android:layout_toRightOf="@id/hoodieInput"
+        android:layout_marginLeft="3dp"
+        />
+
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rgen"
+        android:onClick="generateRandomHoodie"
+        android:layout_toRightOf="@id/randomItemHoodie"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/randomHeader"
+        app:itemIconTint="@color/Blackk"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/listviewH"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/listHeader"
+        android:layout_marginTop="0dp"
+        />
+
+
+    <TextView
+        android:id="@+id/headingAddButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please enter below to add to your hoodie/jumper wardrobe"
+        android:textSize="20sp"
+        android:layout_below="@id/hoodieHeader"/>
+
+    <TextView
+        android:id="@+id/randomHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Not sure what hoodie/jumper to wear click on the button below to the right!"
+        android:layout_below="@id/hoodieInput"/>
+
+    <TextView
+        android:id="@+id/listHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your wardrobe of hoodies/jumpers"
+        android:textSize="30sp"
+        android:layout_below="@id/randomItemHoodie"/>
+
+    <Button
+        android:id="@+id/Home"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/home_icon"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:onClick="toHomePage" />
+</RelativeLayout>

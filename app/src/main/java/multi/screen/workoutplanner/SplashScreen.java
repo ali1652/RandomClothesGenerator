@@ -14,26 +14,15 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
-        sign = findViewById(R.id.buttonSB);
-
-        sign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 
+    // function for on click of sign up button
     public void toSignUp(View view) {
         Intent toSignUpPage = new Intent(this, SignUp.class);
         startActivity(toSignUpPage);
 
     }
-
+    // function for on click of log in button
     public void toLogIn(View view){
         Intent toLogInPage = new Intent(this, LogIn.class);
         startActivity(toLogInPage);

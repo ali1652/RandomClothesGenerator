@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LightBlue"
+    tools:context=".Home">
+
+    <TextView
+        android:id="@+id/HomeSubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the Home Page"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_below="@id/homeHeader"
+        />
+    <TextView
+        android:id="@+id/subHeader2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please click on the icons below to navigate to your desired page"
+        android:textSize="20sp"
+        android:layout_below="@id/HomeSubHeader"/>
+
+    <TextView
+        android:id="@+id/homeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Home"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:background="@color/DarkBlue"/>
+
+    <TextView
+        android:id="@+id/headingCoat"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Coats"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_below="@id/subHeader2"/>
+
+    <Button
+        android:id="@+id/coatsPage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/icons8_raincoat_50"
+        android:onClick="ToCoats"
+        android:layout_below="@id/headingCoat"/>
+
+    <TextView
+        android:id="@+id/headingHoodie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subHeader2"
+        android:textAlignment="center"
+        android:layout_toRightOf="@id/headingCoat"
+        android:text="Hoodies"
+        android:textSize="25sp" />
+
+
+    <Button
+        android:id="@+id/hoodiePage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/headingHoodie"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/icons8_hoodie_64"
+        android:onClick="ToHoodie" />
+
+    <TextView
+        android:id="@+id/headingShirt"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Shirts"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_below="@id/coatsPage"/>
+
+    <Button
+        android:id="@+id/shirtsPage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/icons8t_shirt_50"
+        android:onClick="ToShirt"
+        android:layout_below="@id/headingShirt"/>
+
+    <TextView
+        android:id="@+id/headingTrouser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coatsPage"
+        android:textAlignment="center"
+        android:layout_toRightOf="@id/headingCoat"
+        android:text="Trousers"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/trouserPage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/headingTrouser"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/icons8_clothes_trouser"
+        android:onClick="ToTrouser" />
+
+    <TextView
+        android:id="@+id/headingShoes"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Shoes"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_below="@id/shirtsPage"/>
+
+    <Button
+        android:id="@+id/shoesPage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/headingShoes"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/icons8_sneaker_64"
+        android:onClick="ToShoes" />
+
+    <TextView
+        android:id="@+id/headingOutfit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trouserPage"
+        android:textAlignment="center"
+        android:layout_toRightOf="@id/headingCoat"
+        android:text="Outfit Generator"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/outfitsPage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/headingOutfit"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/icons8_uniform_64"
+        android:onClick="ToOufits" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Sign Out"
+        android:onClick="ToSplash"
+        android:layout_marginBottom="150dp"/>
+
+
+</RelativeLayout>
